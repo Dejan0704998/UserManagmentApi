@@ -1,0 +1,45 @@
+@UserManagmentAPI_HostAddress = http://localhost:5130
+@AuthToken = my-secret-token
+
+### Get all users
+GET {{UserManagmentAPI_HostAddress}}/users
+Authorization: Bearer {{AuthToken}}
+Accept: application/json
+
+### Get user by ID
+GET {{UserManagmentAPI_HostAddress}}/users/5
+Authorization: Bearer {{AuthToken}}
+Accept: application/json
+
+### Create a new user
+POST {{UserManagmentAPI_HostAddress}}/users
+Authorization: Bearer {{AuthToken}}
+Content-Type: application/json
+
+{
+  "firstName": "Ana",
+  "lastName": "Petrovic",
+  "department": "HR",
+  "email": "ana.petrovic@example.com"
+}
+
+### Update user
+PUT {{UserManagmentAPI_HostAddress}}/users/3
+Authorization: Bearer {{AuthToken}}
+Content-Type: application/json
+
+{
+  "firstName": "Ana",
+  "lastName": "Petrovic",
+  "department": "IT",
+  "email": "ana.petrovic@it.example.com"
+}
+
+### Delete user
+DELETE {{UserManagmentAPI_HostAddress}}/users/1
+Authorization: Bearer {{AuthToken}}
+
+### Get all users with pagination
+GET {{UserManagmentAPI_HostAddress}}/users?page=1&pageSize=10
+Authorization: Bearer {{AuthToken}}
+Accept: application/json
